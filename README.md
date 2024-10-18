@@ -8,6 +8,9 @@ If any file, from the given file baths in the configuration file, doesn't exist 
 Example:
 
 WorD : is a word.
+
 word. : not a word because it ends with special character '.'.
+
 235 : not a word.
+
 a the or is : 4 valid words.
