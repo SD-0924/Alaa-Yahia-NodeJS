@@ -22,3 +22,6 @@ class Solution:
                 head = node
                 first = False
         return head
+
+
+I SHOULD GET 29
