@@ -23,7 +23,8 @@ async function getWordsCountFromFile(filePath) {
     return { filePath, count };
   } catch (error) {
     if (error.code == "ENOENT") {
-      return { filePath, count: 0 };
+      console.error(filePath + ": File not found.");
+      return { filePath, count: -1 };
     }
     console.error(
       `Got an error trying to read the file ${filePath}: ${error.message}`
@@ -62,7 +63,9 @@ async function countAlphaWordsInFiles(configPath) {
     const results = await Promise.all(promises);
 
     results.forEach(({ filePath, count }) => {
-      console.log(`${filePath}: ${count} words`);
+      if (count >= 0) {
+        console.log(`${filePath}: ${count} words`);
+      }
     });
   } catch (error) {
     console.error(error.message);
